@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.lauyongyi.cn/Fiddler%C2%A0%E8%BF%87%E6%BB%A4.html</loc>
+    
+    <lastmod>2021-06-04</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.lauyongyi.cn/adb%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</loc>
     
     <lastmod>2021-06-03</lastmod>
@@ -44,14 +51,14 @@
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/tags/index.html</loc>
+    <loc>https://www.lauyongyi.cn/project/index.html</loc>
     
     <lastmod>2021-04-24</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/project/index.html</loc>
+    <loc>https://www.lauyongyi.cn/tags/index.html</loc>
     
     <lastmod>2021-04-24</lastmod>
     
@@ -464,14 +471,14 @@
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/Docker%E5%8C%96%E5%AE%89%E8%A3%85STF.html</loc>
+    <loc>https://www.lauyongyi.cn/Centos%E5%AE%89%E8%A3%85docker.html</loc>
     
     <lastmod>2020-06-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/Centos%E5%AE%89%E8%A3%85docker.html</loc>
+    <loc>https://www.lauyongyi.cn/Docker%E5%8C%96%E5%AE%89%E8%A3%85STF.html</loc>
     
     <lastmod>2020-06-11</lastmod>
     
@@ -669,13 +676,6 @@
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/tags/Android%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2021-06-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.lauyongyi.cn/tags/Linux/</loc>
     <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
@@ -683,7 +683,7 @@
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/tags/Http/</loc>
+    <loc>https://www.lauyongyi.cn/tags/Android%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -718,7 +718,7 @@
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/tags/pytest/</loc>
+    <loc>https://www.lauyongyi.cn/tags/Http/</loc>
     <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -733,6 +733,13 @@
   
   <url>
     <loc>https://www.lauyongyi.cn/tags/python/</loc>
+    <lastmod>2021-06-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lauyongyi.cn/tags/pytest/</loc>
     <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -809,6 +816,13 @@
   </url>
   
   <url>
+    <loc>https://www.lauyongyi.cn/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2021-06-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.lauyongyi.cn/tags/shell/</loc>
     <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
@@ -823,13 +837,6 @@
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2021-06-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.lauyongyi.cn/tags/%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
@@ -837,14 +844,14 @@
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/tags/web%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://www.lauyongyi.cn/tags/%E7%BD%91%E7%AB%99/</loc>
     <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/tags/%E7%BD%91%E7%AB%99/</loc>
+    <loc>https://www.lauyongyi.cn/tags/web%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
