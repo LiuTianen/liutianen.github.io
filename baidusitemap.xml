@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.lauyongyi.cn/adb%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</loc>
+    <lastmod>2021-06-03</lastmod>
+  </url>
+  <url>
     <loc>https://www.lauyongyi.cn/%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BF%90%E8%A1%8C%E5%BC%82%E5%B8%B8.html</loc>
     <lastmod>2021-05-30</lastmod>
   </url>
@@ -10,10 +14,6 @@
   </url>
   <url>
     <loc>https://www.lauyongyi.cn/adb%20shell%20top%E5%91%BD%E4%BB%A4%E8%A7%A3%E6%9E%90.html</loc>
-    <lastmod>2021-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.lauyongyi.cn/adb%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</loc>
     <lastmod>2021-05-11</lastmod>
   </url>
   <url>
@@ -325,11 +325,11 @@
     <lastmod>2019-09-03</lastmod>
   </url>
   <url>
-    <loc>https://www.lauyongyi.cn/%E5%85%B3%E4%BA%8EHTTP%E5%8D%8F%E8%AE%AE.html</loc>
+    <loc>https://www.lauyongyi.cn/selenium%E7%AD%89%E5%BE%85%E7%B1%BB%E5%9E%8B.html</loc>
     <lastmod>2019-09-01</lastmod>
   </url>
   <url>
-    <loc>https://www.lauyongyi.cn/selenium%E7%AD%89%E5%BE%85%E7%B1%BB%E5%9E%8B.html</loc>
+    <loc>https://www.lauyongyi.cn/%E5%85%B3%E4%BA%8EHTTP%E5%8D%8F%E8%AE%AE.html</loc>
     <lastmod>2019-09-01</lastmod>
   </url>
   <url>
