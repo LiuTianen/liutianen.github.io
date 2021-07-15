@@ -107,6 +107,13 @@
   </url>
   
   <url>
+    <loc>https://www.lauyongyi.cn/%E6%9C%AC%E7%AB%99%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B.html</loc>
+    
+    <lastmod>2021-04-24</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.lauyongyi.cn/%E6%9C%8D%E5%8A%A1%E5%99%A8+%E5%9F%9F%E5%90%8D%E9%83%A8%E7%BD%B2Hexo.html</loc>
     
     <lastmod>2021-04-24</lastmod>
@@ -122,13 +129,6 @@
   
   <url>
     <loc>https://www.lauyongyi.cn/%E7%BD%91%E7%AB%99%E5%88%86%E4%BA%AB.html</loc>
-    
-    <lastmod>2021-04-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.lauyongyi.cn/%E6%9C%AC%E7%AB%99%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B.html</loc>
     
     <lastmod>2021-04-24</lastmod>
     
@@ -697,14 +697,14 @@
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/tags/Jenkins/</loc>
+    <loc>https://www.lauyongyi.cn/tags/Linux/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/tags/Linux/</loc>
+    <loc>https://www.lauyongyi.cn/tags/Jenkins/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -753,20 +753,6 @@
   </url>
   
   <url>
-    <loc>https://www.lauyongyi.cn/tags/python/</loc>
-    <lastmod>2021-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.lauyongyi.cn/tags/SQL/</loc>
-    <lastmod>2021-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.lauyongyi.cn/tags/pytest/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
@@ -775,6 +761,20 @@
   
   <url>
     <loc>https://www.lauyongyi.cn/tags/Robot-Framework/</loc>
+    <lastmod>2021-07-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lauyongyi.cn/tags/python/</loc>
+    <lastmod>2021-07-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lauyongyi.cn/tags/SQL/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
