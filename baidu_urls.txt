@@ -1,6 +1,7 @@
 https://www.lauyongyi.cn/adb%20shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html
 https://www.lauyongyi.cn/python+request2.html
 https://www.lauyongyi.cn/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html
+https://www.lauyongyi.cn/python+request.html
 https://www.lauyongyi.cn/adb%E5%91%BD%E4%BB%A4--dumpsys.html
 https://www.lauyongyi.cn/adb%E5%91%BD%E4%BB%A4--am.html
 https://www.lauyongyi.cn/adb%E5%91%BD%E4%BB%A4--logcat.html
@@ -97,4 +98,3 @@ https://www.lauyongyi.cn/SQL%E5%9F%BA%E7%A1%80%E8%AF%AD%E5%8F%A5.html
 https://www.lauyongyi.cn/%E5%AE%89%E5%8D%93App%E4%B8%8EiOSApp%E5%92%8CWeb%E6%B5%8B%E8%AF%95%E7%9A%84%E5%8C%BA%E5%88%AB.html
 https://www.lauyongyi.cn/app%E7%9B%B8%E5%85%B3%E7%9A%84%E7%9F%A5%E8%AF%86.html
 https://www.lauyongyi.cn/%E6%9C%AC%E7%AB%99%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B.html
-https://www.lauyongyi.cn/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BE%93%E5%85%A5%20url%20%E6%8C%89%E5%9B%9E%E8%BD%A6%E8%83%8C%E5%90%8E%E7%BB%8F%E5%8E%86%E4%BA%86%E5%93%AA%E4%BA%9B.html

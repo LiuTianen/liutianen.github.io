@@ -75,6 +75,27 @@
   </entry>
   
   <entry>
+    <title>使用requests发送简单的接口请求</title>
+    <link href="https://www.lauyongyi.cn/python+request.html"/>
+    <id>https://www.lauyongyi.cn/python+request.html</id>
+    <published>2021-08-29T11:14:00.000Z</published>
+    <updated>2021-08-29T13:15:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        <code>requests</code>一个Python第三方库，用来做接口测试、爬虫特别方便<a id="more"></a></p><h4 id="安装requests"><a href="#安装requests" class="headerlink" title="安装requests"></a>安装requests</h4><p>安装命令如下：<code>pip install requests</code></p><p>如果遇到报错，windows可以使用管理员权限的命令行窗口执行、Linux等可以在前面加<code>sudo</code>。</p><p>使用<code>requests</code>非常简单，只需要<code>import requests</code>，然后调用即可。</p><h4 id="第一个Get请求"><a href="#第一个Get请求" class="headerlink" title="第一个Get请求"></a>第一个Get请求</h4><p>例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">html = requests.get(<span class="string">&#x27;https://www.v2ex.com/api/nodes/show.json?name=python&#x27;</span>)</span><br><span class="line">print(html.status_code)</span><br><span class="line">print(html.text)</span><br><span class="line">print(html.headers)</span><br></pre></td></tr></table></figure><p>运行结果如下图：</p><p>![](/images/2021/08/Interface Test/02.png)</p><h4 id="第一个Post请求"><a href="#第一个Post请求" class="headerlink" title="第一个Post请求"></a>第一个Post请求</h4><p>Post请求，相较于Get请求，要稍稍复杂一些，需要构造requestsBody。</p><p>例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://api.apishop.net/common/weather/getWeatherByGPS&quot;</span></span><br><span class="line"></span><br><span class="line">payload=&#123;<span class="string">&#x27;apiKey&#x27;</span>:<span class="string">&#x27;XXXXXXXXXXXXXXXXXXX&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;from&#x27;</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;lat&#x27;</span>: <span class="string">&#x27;22.546534&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;lng&#x27;</span>: <span class="string">&#x27;113.931833&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;need3HourForcast&#x27;</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;needMoreDay&#x27;</span>: <span class="string">&#x27;1&#x27;</span>&#125;</span><br><span class="line">headers = &#123;&#125;</span><br><span class="line"></span><br><span class="line">response = requests.post(url, headers=headers, data=payload)</span><br><span class="line"></span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure><p>由于返回的内容较多，这里就不加图了。</p><h5 id="携带User-Agent的请求"><a href="#携带User-Agent的请求" class="headerlink" title="携带User-Agent的请求"></a>携带User-Agent的请求</h5><p><strong>用户代理</strong>（英语：user agent）在<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>中指的是代表<a href="https://zh.wikipedia.org/wiki/%E7%94%A8%E6%88%B7_(%E8%AE%A1%E7%AE%97%E6%9C%BA)">用户</a>行为的程序（<a href="https://zh.wikipedia.org/w/index.php?title=%E8%BD%AF%E4%BB%B6%E4%BB%A3%E7%90%86%E7%A8%8B%E5%BA%8F&action=edit&redlink=1">软件代理程序</a>）。例如，<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%99%A8">网页浏览器</a>就是一个“帮助用户获取、渲染网页内容并与之交互”的用户代理</p><p>当一个软件在一个<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE">网络协议</a>进行操作时，它通常向它的operating peer提交一个特定的<a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>来标示自己，该字符串通常包含了其<a href="https://zh.wikipedia.org/wiki/%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F">应用程序</a>类型、<a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>、软件供应商……等等，有时还会包含软件修订版本等信息。在<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">HTTP</a>、SIP以及SMTP/NNTP[<a href="https://zh.wikipedia.org/wiki/%E7%94%A8%E6%88%B7%E4%BB%A3%E7%90%86#cite_note-2">2]</a>协议中，这个识别是通过<em>user-agent</em>的<a href="https://zh.wikipedia.org/wiki/%E5%A4%B4%E5%AD%97%E6%AE%B5">头字段</a>传送的。<br><a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E6%9C%BA%E5%99%A8%E4%BA%BA">网络机器人</a>，例如网络抓取工具，通常也会在用户代理的字符串中包含bot的操纵者的联系信息，例如一个<a href="https://zh.wikipedia.org/wiki/URL">URL</a>或一个<a href="https://zh.wikipedia.org/wiki/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E5%9C%B0%E5%9D%80">电子邮件地址</a>，以便<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86%E5%91%98">网站管理员</a>可以用来联系操纵者。</p><p>在HTTP中，User-Agent字符串通常被用于<a href="https://zh.wikipedia.org/wiki/%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86">内容协商</a>，而原始服务器为该响应选择适当的内容或操作参数。例如，User-Agent字符串可能被网络服务器用以基于特定版本的客户端软件的已知功能选择适当的变体。</p><p>通过使用<a href="https://zh.wikipedia.org/wiki/Robots.txt">robots.txt</a>文件的可以设置<a href="https://zh.wikipedia.org/w/index.php?title=%E7%BD%91%E7%BB%9C%E6%8A%93%E5%8F%96%E5%B7%A5%E5%85%B7&action=edit&redlink=1">网络抓取工具</a>对网站的部分访问与否，而其设置标准之一就是用户代理字符串。换句话说，借由<a href="https://zh.wikipedia.org/wiki/Robots.txt">robots.txt</a>文件的设置，可以让网站不能被特定的浏览器访问。</p><p>以豆瓣为例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">html = requests.get(<span class="string">&#x27;https://www.douban.com/&#x27;</span>)</span><br><span class="line">print(html.status_code)</span><br><span class="line"></span><br><span class="line">*****运行结果*****</span><br><span class="line"><span class="number">418</span></span><br></pre></td></tr></table></figure><p>返回的“418”表示请求被豆瓣的服务拒绝了，也就说明，豆瓣认为该次请求是爬虫请求。</p><p>这时候，添加一个User-Agent来模拟成六=浏览器发送的请求。</p><p>User-Agent可以从网上随便搜索到，也可用浏览器自带的控制台获取。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36&#x27;</span>&#125;</span><br><span class="line">html = requests.get(<span class="string">&#x27;https://www.douban.com/&#x27;</span>,headers=headers)</span><br><span class="line">print(html.status_code)</span><br><span class="line"></span><br><span class="line">******运行结果******</span><br><span class="line"><span class="number">200</span></span><br></pre></td></tr></table></figure><p>这时候，就可以添加一些其他打印了，如text、hearders等。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​        &lt;code&gt;requests&lt;/code&gt;一个Python第三方库，用来做接口测试、爬虫特别方便</summary>
+    
+    
+    
+    <category term="python" scheme="https://www.lauyongyi.cn/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://www.lauyongyi.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>adb shell dumpsys 命令解析</title>
     <link href="https://www.lauyongyi.cn/adb%E5%91%BD%E4%BB%A4--dumpsys.html"/>
     <id>https://www.lauyongyi.cn/adb%E5%91%BD%E4%BB%A4--dumpsys.html</id>
@@ -154,9 +175,9 @@
     <category term="测试基础" scheme="https://www.lauyongyi.cn/categories/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/"/>
     
     
-    <category term="功能测试" scheme="https://www.lauyongyi.cn/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-    
     <category term="Http" scheme="https://www.lauyongyi.cn/tags/Http/"/>
+    
+    <category term="功能测试" scheme="https://www.lauyongyi.cn/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -404,27 +425,6 @@
     
     
     <summary type="html">&lt;p&gt;Android APP Crash通常是由未捕获的&lt;code&gt;Exception&lt;/code&gt;或&lt;code&gt;signal&lt;/code&gt;引起&lt;code&gt;app&lt;/code&gt;异常退出。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Android" scheme="https://www.lauyongyi.cn/categories/Android/"/>
-    
-    
-    <category term="Android开发" scheme="https://www.lauyongyi.cn/tags/Android%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android Uiantomator2.0脚本编写基础知识</title>
-    <link href="https://www.lauyongyi.cn/Android%20Uiantomator2.0%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E5%9F%BA%E7%A1%80.html"/>
-    <id>https://www.lauyongyi.cn/Android%20Uiantomator2.0%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E5%9F%BA%E7%A1%80.html</id>
-    <published>2021-03-10T12:16:00.000Z</published>
-    <updated>2021-06-18T10:33:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://developer.android.com/training/testing/ui-automator.html">UiAutomator</a>是Google提供的用来做安卓自动化测试的一个Java库，基于Accessibility服务。功能很强，可以对第三方App进行测试，获取屏幕上任意一个APP的任意一个控件属性，并对其进行任意操作，但有两个缺点：1. 测试脚本只能使用Java语言 2. 测试脚本要打包成jar或者apk包上传到设备上才能运行。        </p><a id="more"></a><h4 id="UiautomatorViewer工具"><a href="#UiautomatorViewer工具" class="headerlink" title="UiautomatorViewer工具"></a>UiautomatorViewer工具</h4><p>​        uiautomatorviewer是android SDK自带的一个元素定位工具。通过截屏并分析XML布局文件的方式，为用户提供控件信息查看服务。<br>使用uiautomatorviewer，你可以检查一个应用的UI来查看应用的布局和组件以及相关的属性。该工具位于SDK目录下的tools\bin子目录下。</p><h5 id="启动UiUiautomatorViewer"><a href="#启动UiUiautomatorViewer" class="headerlink" title="启动UiUiautomatorViewer"></a>启动UiUiautomatorViewer</h5><p>​    方法一：直接进入进入SDK目录下的tools\bin目录下双击uiautomatorviewer.bat就可以启动。（旧版本的在SDK目录下的tools）</p><p>​    方法二：将环境变量配置到SDK目录下的tools\bin目录，在命令行工具执行：uiautomatorviewer</p><h4 id="核心定位元素"><a href="#核心定位元素" class="headerlink" title="核心定位元素"></a>核心定位元素</h4><table><thead><tr><th>属性</th><th>描述</th></tr></thead><tbody><tr><td>resource-id</td><td>资源ID，需要操作的组件基本都会有ID</td></tr><tr><td>text</td><td>文字属性，显示在组件上的文字</td></tr><tr><td>content-desc</td><td>描述，常用于提示操作</td></tr><tr><td>checken</td><td>选择属性，常见开关、单/复选和开关状态</td></tr><tr><td>focused</td><td>焦点属性，如输入框光标的闪动，说明焦点在输入框</td></tr></tbody></table><h4 id="搜索对象"><a href="#搜索对象" class="headerlink" title="搜索对象"></a>搜索对象</h4><table><thead><tr><th>属性</th><th>返回值</th><th>API By类</th></tr></thead><tbody><tr><td>resource-id</td><td>static BySelector</td><td>res(java.lang.String resourceName)</td></tr><tr><td>text</td><td>static BySelector</td><td>text(java.lang.String text)</td></tr><tr><td>content-desc</td><td>static BySelector</td><td>decs(java.lang.String contentDescription)</td></tr><tr><td>checken</td><td>static BySelector</td><td>checked(boolean isChecked)</td></tr><tr><td>focused</td><td>static BySelector</td><td>focused(boolean isFocused)</td></tr></tbody></table><h4 id="常见组件操作"><a href="#常见组件操作" class="headerlink" title="常见组件操作"></a>常见组件操作</h4><table><thead><tr><th>常见组件操作</th><th>类（UiObject2）</th></tr></thead><tbody><tr><td>点击</td><td>public boolean click()</td></tr><tr><td>长按</td><td>public boolean longclick()</td></tr><tr><td>拖动</td><td>public void drag(Point dest)</td></tr><tr><td>输入</td><td>public boolean setText(String text)</td></tr></tbody></table><h4 id="常见设备操作"><a href="#常见设备操作" class="headerlink" title="常见设备操作"></a>常见设备操作</h4><table><thead><tr><th>常见设备操作</th><th>类（UiDevice）</th></tr></thead><tbody><tr><td>点击</td><td>click(int x, int y)</td></tr><tr><td>按键</td><td>pressKeyCode(int KeyCode)</td></tr><tr><td>滑动</td><td>swipe(int startX, int StartY, int endX, int endY, int steps)</td></tr></tbody></table><p>1个steps等于5ms。</p><h4 id="用例注释生命周期"><a href="#用例注释生命周期" class="headerlink" title="用例注释生命周期"></a>用例注释生命周期</h4><p>@Before  每次用例开始前都执行</p><p>@Test 测试用例 </p><p>@After 每次用例结束后都执行</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://developer.android.com/training/testing/ui-automator.html&quot;&gt;UiAutomator&lt;/a&gt;是Google提供的用来做安卓自动化测试的一个Java库，基于Accessibility服务。功能很强，可以对第三方App进行测试，获取屏幕上任意一个APP的任意一个控件属性，并对其进行任意操作，但有两个缺点：1. 测试脚本只能使用Java语言 2. 测试脚本要打包成jar或者apk包上传到设备上才能运行。        &lt;/p&gt;</summary>
     
     
     
