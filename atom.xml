@@ -6,22 +6,43 @@
   <link href="https://www.lauyongyi.cn/atom.xml" rel="self"/>
   
   <link href="https://www.lauyongyi.cn/"/>
-  <updated>2021-08-29T13:15:00.000Z</updated>
+  <updated>2021-09-11T02:46:12.000Z</updated>
   <id>https://www.lauyongyi.cn/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>使用requests发送简单的接口请求</title>
-    <link href="https://www.lauyongyi.cn/python+request.html"/>
-    <id>https://www.lauyongyi.cn/python+request.html</id>
-    <published>2021-08-29T11:14:00.000Z</published>
-    <updated>2021-08-29T13:15:00.000Z</updated>
+    <title>adb shell 常用命令</title>
+    <link href="https://www.lauyongyi.cn/adb%20shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html"/>
+    <id>https://www.lauyongyi.cn/adb%20shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</id>
+    <published>2021-09-11T02:19:00.000Z</published>
+    <updated>2021-09-11T02:46:12.000Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        <code>requests</code>一个Python第三方库，用来做接口测试、爬虫特别方便<a id="more"></a></p><h4 id="安装requests"><a href="#安装requests" class="headerlink" title="安装requests"></a>安装requests</h4><p>安装命令如下：<code>pip install requests</code></p><p>如果遇到报错，windows可以使用管理员权限的命令行窗口执行、Linux等可以在前面加<code>sudo</code>。</p><p>使用<code>requests</code>非常简单，只需要<code>import requests</code>，然后调用即可。</p><h4 id="第一个Get请求"><a href="#第一个Get请求" class="headerlink" title="第一个Get请求"></a>第一个Get请求</h4><p>例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">html = requests.get(<span class="string">&#x27;https://www.v2ex.com/api/nodes/show.json?name=python&#x27;</span>)</span><br><span class="line">print(html.status_code)</span><br><span class="line">print(html.text)</span><br><span class="line">print(html.headers)</span><br></pre></td></tr></table></figure><p>运行结果如下图：</p><p>![](/images/2021/08/Interface Test/02.png)</p><h4 id="第一个Post请求"><a href="#第一个Post请求" class="headerlink" title="第一个Post请求"></a>第一个Post请求</h4><p>Post请求，相较于Get请求，要稍稍复杂一些，需要构造requestsBody。</p><p>例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://api.apishop.net/common/weather/getWeatherByGPS&quot;</span></span><br><span class="line"></span><br><span class="line">payload=&#123;<span class="string">&#x27;apiKey&#x27;</span>:<span class="string">&#x27;XXXXXXXXXXXXXXXXXXX&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;from&#x27;</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;lat&#x27;</span>: <span class="string">&#x27;22.546534&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;lng&#x27;</span>: <span class="string">&#x27;113.931833&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;need3HourForcast&#x27;</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;needMoreDay&#x27;</span>: <span class="string">&#x27;1&#x27;</span>&#125;</span><br><span class="line">headers = &#123;&#125;</span><br><span class="line"></span><br><span class="line">response = requests.post(url, headers=headers, data=payload)</span><br><span class="line"></span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure><p>由于返回的内容较多，这里就不加图了。</p><h5 id="携带User-Agent的请求"><a href="#携带User-Agent的请求" class="headerlink" title="携带User-Agent的请求"></a>携带User-Agent的请求</h5><p><strong>用户代理</strong>（英语：user agent）在<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>中指的是代表<a href="https://zh.wikipedia.org/wiki/%E7%94%A8%E6%88%B7_(%E8%AE%A1%E7%AE%97%E6%9C%BA)">用户</a>行为的程序（<a href="https://zh.wikipedia.org/w/index.php?title=%E8%BD%AF%E4%BB%B6%E4%BB%A3%E7%90%86%E7%A8%8B%E5%BA%8F&action=edit&redlink=1">软件代理程序</a>）。例如，<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%99%A8">网页浏览器</a>就是一个“帮助用户获取、渲染网页内容并与之交互”的用户代理</p><p>当一个软件在一个<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE">网络协议</a>进行操作时，它通常向它的operating peer提交一个特定的<a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>来标示自己，该字符串通常包含了其<a href="https://zh.wikipedia.org/wiki/%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F">应用程序</a>类型、<a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>、软件供应商……等等，有时还会包含软件修订版本等信息。在<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">HTTP</a>、SIP以及SMTP/NNTP[<a href="https://zh.wikipedia.org/wiki/%E7%94%A8%E6%88%B7%E4%BB%A3%E7%90%86#cite_note-2">2]</a>协议中，这个识别是通过<em>user-agent</em>的<a href="https://zh.wikipedia.org/wiki/%E5%A4%B4%E5%AD%97%E6%AE%B5">头字段</a>传送的。<br><a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E6%9C%BA%E5%99%A8%E4%BA%BA">网络机器人</a>，例如网络抓取工具，通常也会在用户代理的字符串中包含bot的操纵者的联系信息，例如一个<a href="https://zh.wikipedia.org/wiki/URL">URL</a>或一个<a href="https://zh.wikipedia.org/wiki/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E5%9C%B0%E5%9D%80">电子邮件地址</a>，以便<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%AB%99%E7%AE%A1%E7%90%86%E5%91%98">网站管理员</a>可以用来联系操纵者。</p><p>在HTTP中，User-Agent字符串通常被用于<a href="https://zh.wikipedia.org/wiki/%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86">内容协商</a>，而原始服务器为该响应选择适当的内容或操作参数。例如，User-Agent字符串可能被网络服务器用以基于特定版本的客户端软件的已知功能选择适当的变体。</p><p>通过使用<a href="https://zh.wikipedia.org/wiki/Robots.txt">robots.txt</a>文件的可以设置<a href="https://zh.wikipedia.org/w/index.php?title=%E7%BD%91%E7%BB%9C%E6%8A%93%E5%8F%96%E5%B7%A5%E5%85%B7&action=edit&redlink=1">网络抓取工具</a>对网站的部分访问与否，而其设置标准之一就是用户代理字符串。换句话说，借由<a href="https://zh.wikipedia.org/wiki/Robots.txt">robots.txt</a>文件的设置，可以让网站不能被特定的浏览器访问。</p><p>以豆瓣为例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">html = requests.get(<span class="string">&#x27;https://www.douban.com/&#x27;</span>)</span><br><span class="line">print(html.status_code)</span><br><span class="line"></span><br><span class="line">*****运行结果*****</span><br><span class="line"><span class="number">418</span></span><br></pre></td></tr></table></figure><p>返回的“418”表示请求被豆瓣的服务拒绝了，也就说明，豆瓣认为该次请求是爬虫请求。</p><p>这时候，添加一个User-Agent来模拟成六=浏览器发送的请求。</p><p>User-Agent可以从网上随便搜索到，也可用浏览器自带的控制台获取。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36&#x27;</span>&#125;</span><br><span class="line">html = requests.get(<span class="string">&#x27;https://www.douban.com/&#x27;</span>,headers=headers)</span><br><span class="line">print(html.status_code)</span><br><span class="line"></span><br><span class="line">******运行结果******</span><br><span class="line"><span class="number">200</span></span><br></pre></td></tr></table></figure><p>这时候，就可以添加一些其他打印了，如text、hearders等。</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        手机设备或者模拟器与电脑连接成功后输入<code>adb shell</code>，可以进入到<code>shell</code>命令模式，这里主要记录的就是跟<code>adb shell</code> 相关的常用命令。<a id="more"></a></p><h4 id="查询命令"><a href="#查询命令" class="headerlink" title="查询命令"></a>查询命令</h4><table><thead><tr><th>命令</th><th>解释</th></tr></thead><tbody><tr><td>grep</td><td>指定文件或者输出中搜索特定的内容，并将含有这些内容的行输出</td></tr></tbody></table>]]></content>
     
     
-    <summary type="html">&lt;p&gt;​        &lt;code&gt;requests&lt;/code&gt;一个Python第三方库，用来做接口测试、爬虫特别方便</summary>
+    <summary type="html">&lt;p&gt;​        手机设备或者模拟器与电脑连接成功后输入&lt;code&gt;adb shell&lt;/code&gt;，可以进入到&lt;code&gt;shell&lt;/code&gt;命令模式，这里主要记录的就是跟&lt;code&gt;adb shell&lt;/code&gt; 相关的常用命令。</summary>
+    
+    
+    
+    <category term="Android" scheme="https://www.lauyongyi.cn/categories/Android/"/>
+    
+    
+    <category term="adb命令" scheme="https://www.lauyongyi.cn/tags/adb%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用requests做简单的接口测试</title>
+    <link href="https://www.lauyongyi.cn/python+request2.html"/>
+    <id>https://www.lauyongyi.cn/python+request2.html</id>
+    <published>2021-09-05T11:14:00.000Z</published>
+    <updated>2021-09-05T14:15:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        <code>requests</code>除了用来做接口请求的发送，还可以用来做接口测试，使用方法跟最基础的发送请求一样，不同点就是多了一些处理方法和断言。<a id="more"></a></p><p>​        </p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​        &lt;code&gt;requests&lt;/code&gt;除了用来做接口请求的发送，还可以用来做接口测试，使用方法跟最基础的发送请求一样，不同点就是多了一些处理方法和断言。</summary>
     
     
     
@@ -29,6 +50,27 @@
     
     
     <category term="python" scheme="https://www.lauyongyi.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux常用的几个命令</title>
+    <link href="https://www.lauyongyi.cn/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html"/>
+    <id>https://www.lauyongyi.cn/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</id>
+    <published>2021-09-04T03:26:00.000Z</published>
+    <updated>2021-09-11T10:08:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​    记录几个日常工作中常用到的几个Linux命令如：<code>tail</code>、<code>cat</code>、<code>vi</code>、<code>grep</code>等以及相关的可选项的使用。<a id="more"></a></p><h4 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h4><p>​    tail 命令从指定点开始将文件写到标准输出.使用tail命令的-f选项可以方便的查阅正在改变的日志文件,tail -f filename会把filename里最尾部的内容显示在屏幕上,并且不断刷新,使你看到最新的文件内容. </p><h5 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h5><p>tail [必要参数] [选择参数] [文件]  </p><h5 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h5><p>用于显示指定文件末尾内容，不指定文件时，作为输入信息进行处理。常用查看日志文件。</p><h5 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h5><table><thead><tr><th>参数</th><th>解释</th></tr></thead><tbody><tr><td>-f</td><td>循环读取</td></tr><tr><td>-q</td><td>不显示处理信息</td></tr><tr><td>-v</td><td>显示详细的处理信息</td></tr><tr><td>-c&lt;数目&gt;</td><td>显示的字节数</td></tr><tr><td>-n&lt;行数&gt;</td><td>显示行数</td></tr><tr><td>–pid=PID</td><td>与-f合用,可以在指定进程结束后结束<code>tail -f</code></td></tr><tr><td>-q, –quiet, –silent</td><td>从不输出给出文件名的首部</td></tr><tr><td>-s, –sleep-interval=S</td><td>与-f合用,表示在每次反复的间隔休眠S秒</td></tr></tbody></table><h5 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h5><h6 id="显示文件末尾内容"><a href="#显示文件末尾内容" class="headerlink" title="显示文件末尾内容"></a>显示文件末尾内容</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tail -n 5 time.log </span><br><span class="line"></span><br><span class="line">BTW = FF</span><br><span class="line">USB = FF</span><br><span class="line">0x300</span><br><span class="line">Power Down%                 </span><br></pre></td></tr></table></figure><h6 id="循环查看文件内容"><a href="#循环查看文件内容" class="headerlink" title="循环查看文件内容"></a>循环查看文件内容</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ping 192.168.31.220  &gt; ip.log&amp;</span><br><span class="line">[1] 37763</span><br><span class="line">tail -f ip.log --pid 37763</span><br><span class="line">Request timeout for icmp_seq 0</span><br><span class="line">Request timeout for icmp_seq 1</span><br><span class="line">Request timeout for icmp_seq 2</span><br><span class="line">Request timeout for icmp_seq 3</span><br><span class="line">Request timeout for icmp_seq 4</span><br><span class="line">Request timeout for icmp_seq 5</span><br><span class="line">Request timeout for icmp_seq 6</span><br><span class="line">Request timeout for icmp_seq 7</span><br><span class="line">Request timeout for icmp_seq 8</span><br><span class="line">Request timeout for icmp_seq 9</span><br><span class="line">Request timeout for icmp_seq 10</span><br><span class="line">Request timeout for icmp_seq 11</span><br><span class="line">Request timeout for icmp_seq 12</span><br><span class="line">Request timeout for icmp_seq 13</span><br><span class="line">Request timeout for icmp_seq 14</span><br><span class="line">Request timeout for icmp_seq 15</span><br><span class="line">Request timeout for icmp_seq 16</span><br><span class="line">Request timeout for icmp_seq 17</span><br><span class="line">Request timeout for icmp_seq 18</span><br></pre></td></tr></table></figure><p><strong>说明：</strong></p><p>ping 192.168.31.220  &gt; ip.log&amp; &amp; //在后台ping远程主机。并输出文件到ip.log；这种做法也适用于一个以上的档案监视。可以Ctrl＋c来终止，也可以在另一个窗口 kill pid 来结束。</p><h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h4><p>​    grep命令是Linux系统中一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹 配的行打印出来。grep全称是Global Regular Expression Print，表示全局正则表达式版本，它的使用权限是所有用户。</p><p>grep的工作方式是这样的，它在一个或多个文件中搜索字符串模板。如果模板包括空格，则必须被引用，模板后的所有字符串被看作文件名。搜索的结果被送到标准输出，不影响原文件内容。</p><h5 id="命令格式-1"><a href="#命令格式-1" class="headerlink" title="命令格式"></a>命令格式</h5><p><code>grep [option] /path/file</code>：用于过滤/搜索的特定字符。可使用正则表达式能多种命令配合使用，使用上十分灵活。</p><h5 id="命令参数："><a href="#命令参数：" class="headerlink" title="命令参数："></a>命令参数：</h5><table><thead><tr><th>参数</th><th>解释</th></tr></thead><tbody><tr><td>-a  –text</td><td>不要忽略二进制的数据。</td></tr><tr><td>-A&lt;显示行数&gt;  –after-context=&lt;显示行数&gt;</td><td>除了显示符合范本样式的那一列之外，并显示该行之后的内容。</td></tr><tr><td>-b  –byte-offset</td><td>在显示符合样式的那一行之前，标示出该行第一个字符的编号。</td></tr><tr><td>-B&lt;显示行数&gt;  –before-context=&lt;显示行数&gt;</td><td>除了显示符合样式的那一行之外，并显示该行之前的内容。</td></tr><tr><td>-c  –count</td><td>计算符合样式的列数。</td></tr><tr><td>-C&lt;显示行数&gt;  –context=&lt;显示行数&gt;或-&lt;显示行数&gt;</td><td>除了显示符合样式的那一行之外，并显示该行之前后的内容。</td></tr><tr><td>-d &lt;动作&gt;   –directories=&lt;动作&gt;</td><td>当指定要查找的是目录而非文件时，必须使用这项参数，否则grep指令将回报信息并停止动作。</td></tr><tr><td>-e&lt;范本样式&gt; –regexp=&lt;范本样式&gt;</td><td>指定字符串做为查找文件内容的样式。</td></tr><tr><td>-E   –extended-regexp</td><td>将样式为延伸的普通表示法来使用。</td></tr><tr><td>-f&lt;规则文件&gt; –file=&lt;规则文件&gt;</td><td>指定规则文件，其内容含有一个或多个规则样式，让grep查找符合规则条件的文件内容，格式为每行一个规则样式。</td></tr><tr><td>-F  –fixed-regexp</td><td>将样式视为固定字符串的列表。</td></tr><tr><td>-G  –basic-regexp</td><td>将样式视为普通的表示法来使用。</td></tr><tr><td>-h  –no-filename</td><td>在显示符合样式的那一行之前，不标示该行所属的文件名称。</td></tr><tr><td>-H  –with-filename</td><td>在显示符合样式的那一行之前，表示该行所属的文件名称。</td></tr><tr><td>-i  –ignore-case</td><td>忽略字符大小写的差别。</td></tr><tr><td>-l  –file-with-matches</td><td>列出文件内容符合指定的样式的文件名称。</td></tr><tr><td>-L  –files-without-match</td><td>列出文件内容不符合指定的样式的文件名称。</td></tr><tr><td>-n  –line-number</td><td>在显示符合样式的那一行之前，标示出该行的列数编号。</td></tr><tr><td>-q  –quiet或–silent</td><td>不显示任何信息。</td></tr><tr><td>-r  –recursive</td><td>此参数的效果和指定“-d recurse”参数相同。</td></tr><tr><td>-s  –no-messages</td><td>不显示错误信息。</td></tr><tr><td>-v  –revert-match</td><td>显示不包含匹配文本的所有行。</td></tr><tr><td>-V  –version</td><td>显示版本信息。</td></tr><tr><td>-w  –word-regexp</td><td>只显示全字符合的列。</td></tr><tr><td>-x  –line-regexp</td><td>只显示全列符合的列。</td></tr><tr><td>-y</td><td>此参数的效果和指定“-i”参数相同。</td></tr></tbody></table><h5 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h5><h6 id="查找指定进程"><a href="#查找指定进程" class="headerlink" title="查找指定进程"></a>查找指定进程</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep pycharm</span><br><span class="line">  501 36537     1   0  3:14下午 ??        17:29.34 /Users/......./Library/Application Support/JetBrains/Toolbox/apps/PyCharm-P/ch-0/212.5080.64/PyCharm.app/Contents/MacOS/pycharm</span><br><span class="line">  501 38003 36013   0  5:18下午 ttys000    0:00.00 grep pycharm</span><br></pre></td></tr></table></figure><p><strong>说明：</strong></p><p>第一条记录是查找出的进程；第二条结果是grep进程本身，并非真正要找的进程。</p><h6 id="查找指定进程个数"><a href="#查找指定进程个数" class="headerlink" title="查找指定进程个数"></a>查找指定进程个数</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep pycharm -c</span><br><span class="line">2</span><br><span class="line">ps -ef | grep  -c pycharm</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​    记录几个日常工作中常用到的几个Linux命令如：&lt;code&gt;tail&lt;/code&gt;、&lt;code&gt;cat&lt;/code&gt;、&lt;code&gt;vi&lt;/code&gt;、&lt;code&gt;grep&lt;/code&gt;等以及相关的可选项的使用。</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.lauyongyi.cn/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://www.lauyongyi.cn/tags/Linux/"/>
     
   </entry>
   
@@ -112,9 +154,9 @@
     <category term="测试基础" scheme="https://www.lauyongyi.cn/categories/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/"/>
     
     
-    <category term="Http" scheme="https://www.lauyongyi.cn/tags/Http/"/>
-    
     <category term="功能测试" scheme="https://www.lauyongyi.cn/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="Http" scheme="https://www.lauyongyi.cn/tags/Http/"/>
     
   </entry>
   
@@ -390,48 +432,6 @@
     
     
     <category term="Android开发" scheme="https://www.lauyongyi.cn/tags/Android%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安卓shell脚本</title>
-    <link href="https://www.lauyongyi.cn/%E5%AE%89%E5%8D%93Shell%E8%84%9A%E6%9C%AC.html"/>
-    <id>https://www.lauyongyi.cn/%E5%AE%89%E5%8D%93Shell%E8%84%9A%E6%9C%AC.html</id>
-    <published>2021-02-15T09:30:00.000Z</published>
-    <updated>2021-02-16T06:39:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        在做测试Android应用时，经常需要执行某些重复的操作，如果设备支持adb调试，可以使用python、java等编写自动化脚本，以实现自动执行重复操作，解放人力。但如果遇到不支持ADB调试的设备时，只能使用串口工具，此时python、java就显得些乏力，这时候，就可以使用shell脚本。<a id="more"></a></p><p>1、脚本编写</p><p>​        安卓的shell脚本编写和Linux系统一样。但因为机制原因，要执行shell脚本，需要到/data目录下才可以。</p><p>​        使用串口工具链接设备和电脑。</p><p>​        选择端口</p><p>​        进入到设备</p><p>​        su获取权限</p><p>​        cd /data 进入到data目录</p><p>​        vi shellscript.sh</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">示例脚本。模拟打开一个应用，然后发送指定键值进行操作</span></span><br><span class="line"><span class="meta">#</span><span class="bash">!/system/bin/sh</span></span><br><span class="line">while true</span><br><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">am start PackageName</span><br><span class="line">input keyevent KeyCode</span><br><span class="line">input keyevent KeyCode</span><br><span class="line">input keyevent KeyCode</span><br><span class="line">sleep 3</span><br><span class="line">am force-stop PackageName</span><br><span class="line">&#125;</span><br><span class="line">done</span><br></pre></td></tr></table></figure><p>​        按 Esc  #进入vi命令模式</p><p>​        输入 :wq  #写入并退出</p><p>​        chmod 777 shellscript.sh   #赋予权限</p><p>​        ./shellscript.sh  #执行脚本</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;​        在做测试Android应用时，经常需要执行某些重复的操作，如果设备支持adb调试，可以使用python、java等编写自动化脚本，以实现自动执行重复操作，解放人力。但如果遇到不支持ADB调试的设备时，只能使用串口工具，此时python、java就显得些乏力，这时候，就可以使用shell脚本。</summary>
-    
-    
-    
-    <category term="Android" scheme="https://www.lauyongyi.cn/categories/Android/"/>
-    
-    
-    <category term="adb命令" scheme="https://www.lauyongyi.cn/tags/adb%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Centos安装Tomcat</title>
-    <link href="https://www.lauyongyi.cn/Centos%E5%AE%89%E8%A3%85Tomcat.html"/>
-    <id>https://www.lauyongyi.cn/Centos%E5%AE%89%E8%A3%85Tomcat.html</id>
-    <published>2021-01-22T05:02:00.000Z</published>
-    <updated>2021-01-22T05:30:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​    记录centos安装Tomcat的方法和配置过程<a id="more"></a></p><p>前提条件：已经配置好jdk环境</p><h4 id="方法一：yum"><a href="#方法一：yum" class="headerlink" title="方法一：yum"></a>方法一：yum</h4><p>​    可以直接使用 <code> yum -y install tomcat</code> 进行安装</p><p>优点：</p><p>​    省事</p><p>缺点：</p><p>​    不一定是最新版本</p><p>安装成功后，需要配置防火墙</p><p><code>firewall-cmd --zone=public --add-port=8080/tcp --permanent</code> 进行8080端口开放配置；</p><p>如果没有出现 <strong>success</strong> （一般都是提示防火墙没有运行） ，就需要检查防火墙是否开启</p><p>防火墙开启命令 <code>systemctl start firewalld</code> ，防火墙开启之后，在进行配置，然后重启防火墙，命令如下</p><p><code>firewall-cmd --reload</code>。防火墙重启之后，就可以通过IP:8080进行访问了。</p><p>通常，这个时候访问，提示无法访问，原因是缺少管理包，执行以下命令，安装成功之后，就可以正常访问了。</p><p><code>yum install -y tomcat-webapps tomcat-admin-webapps </code></p><p>Tomcat相关的操作命令如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">查看tomcat的状态</span><br><span class="line">systemctl status tomcat.service</span><br><span class="line"></span><br><span class="line">配置开机启动</span><br><span class="line">systemctl enable tomcat.service</span><br><span class="line"></span><br><span class="line">删除开机启动</span><br><span class="line">systemctl disable tomcat.service</span><br><span class="line"></span><br><span class="line">启动tomcat</span><br><span class="line">systemctl start tomcat.service</span><br><span class="line"></span><br><span class="line">停止tomcat</span><br><span class="line">systemctl stop tomcat.service</span><br><span class="line"></span><br><span class="line">重启tomcat</span><br><span class="line">systemctl restart tomcat.service</span><br></pre></td></tr></table></figure><p>关于安装目录说明：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">相关目录及作用说明</span><br><span class="line">　　&#x2F;etc&#x2F;tomcatXX - 全局配置</span><br><span class="line">　　&#x2F;usr&#x2F;share&#x2F;tomcatXX&#x2F; - 程序主目录</span><br><span class="line">　　&#x2F;usr&#x2F;share&#x2F;tomcatXX&#x2F;conf&#x2F;Catalina&#x2F;localhost&#x2F; - 本机部署的 Catalina 配置</span><br><span class="line">　　&#x2F;var&#x2F;lib&#x2F;tomcatXX&#x2F; - 工作主目录</span><br><span class="line">　　&#x2F;var&#x2F;lib&#x2F;tomcatXX&#x2F;webapps - （应用文件实际存放于此）</span><br></pre></td></tr></table></figure><h4 id="方法二：手动安装配置"><a href="#方法二：手动安装配置" class="headerlink" title="方法二：手动安装配置"></a>方法二：手动安装配置</h4><p>​    进入到一个目录下例如 <strong>cd /usr/local/</strong> ，然后执行下载命令</p><p><code>wget http://mirrors.hust.edu.cn/apache/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.tar.gz </code> 这里用的是9.0版本，可以自己调整版本。</p><p>然后解压 <code>tar -zxvf apache-tomcat-9.0.41.tar.gz</code></p><p>重命名 <code>mv apache-tomcat-9.0.41 tomcat</code></p><p>然后启动就可以了</p><p> tomcat常用命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;bin&#x2F;startup.sh(启动命令)</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;bin&#x2F;shutdown.sh(关闭命令)</span><br><span class="line">ps -ef|grep java(查看tomcat进程)</span><br><span class="line">kill -9 进程号(杀死经常)</span><br><span class="line">tail -f &#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;logs&#x2F;catalina.out(查看tomcat日志)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;​    记录centos安装Tomcat的方法和配置过程</summary>
-    
-    
-    
-    <category term="工具使用" scheme="https://www.lauyongyi.cn/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
-    
-    
-    <category term="Linux" scheme="https://www.lauyongyi.cn/tags/Linux/"/>
     
   </entry>
   
