@@ -6,31 +6,10 @@
   <link href="https://www.lauyongyi.cn/atom.xml" rel="self"/>
   
   <link href="https://www.lauyongyi.cn/"/>
-  <updated>2021-09-11T02:46:12.000Z</updated>
+  <updated>2021-09-05T14:15:00.000Z</updated>
   <id>https://www.lauyongyi.cn/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>adb shell 常用命令</title>
-    <link href="https://www.lauyongyi.cn/adb%20shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html"/>
-    <id>https://www.lauyongyi.cn/adb%20shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</id>
-    <published>2021-09-11T02:19:00.000Z</published>
-    <updated>2021-09-11T02:46:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        手机设备或者模拟器与电脑连接成功后输入<code>adb shell</code>，可以进入到<code>shell</code>命令模式，这里主要记录的就是跟<code>adb shell</code> 相关的常用命令。<a id="more"></a></p><h4 id="查询命令"><a href="#查询命令" class="headerlink" title="查询命令"></a>查询命令</h4><table><thead><tr><th>命令</th><th>解释</th></tr></thead><tbody><tr><td>grep</td><td>指定文件或者输出中搜索特定的内容，并将含有这些内容的行输出</td></tr></tbody></table>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;​        手机设备或者模拟器与电脑连接成功后输入&lt;code&gt;adb shell&lt;/code&gt;，可以进入到&lt;code&gt;shell&lt;/code&gt;命令模式，这里主要记录的就是跟&lt;code&gt;adb shell&lt;/code&gt; 相关的常用命令。</summary>
-    
-    
-    
-    <category term="Android" scheme="https://www.lauyongyi.cn/categories/Android/"/>
-    
-    
-    <category term="adb命令" scheme="https://www.lauyongyi.cn/tags/adb%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
   
   <entry>
     <title>使用requests做简单的接口测试</title>
@@ -425,6 +404,27 @@
     
     
     <summary type="html">&lt;p&gt;Android APP Crash通常是由未捕获的&lt;code&gt;Exception&lt;/code&gt;或&lt;code&gt;signal&lt;/code&gt;引起&lt;code&gt;app&lt;/code&gt;异常退出。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Android" scheme="https://www.lauyongyi.cn/categories/Android/"/>
+    
+    
+    <category term="Android开发" scheme="https://www.lauyongyi.cn/tags/Android%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android Uiantomator2.0脚本编写基础知识</title>
+    <link href="https://www.lauyongyi.cn/Android%20Uiantomator2.0%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E5%9F%BA%E7%A1%80.html"/>
+    <id>https://www.lauyongyi.cn/Android%20Uiantomator2.0%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E5%9F%BA%E7%A1%80.html</id>
+    <published>2021-03-10T12:16:00.000Z</published>
+    <updated>2021-06-18T10:33:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://developer.android.com/training/testing/ui-automator.html">UiAutomator</a>是Google提供的用来做安卓自动化测试的一个Java库，基于Accessibility服务。功能很强，可以对第三方App进行测试，获取屏幕上任意一个APP的任意一个控件属性，并对其进行任意操作，但有两个缺点：1. 测试脚本只能使用Java语言 2. 测试脚本要打包成jar或者apk包上传到设备上才能运行。        </p><a id="more"></a><h4 id="UiautomatorViewer工具"><a href="#UiautomatorViewer工具" class="headerlink" title="UiautomatorViewer工具"></a>UiautomatorViewer工具</h4><p>​        uiautomatorviewer是android SDK自带的一个元素定位工具。通过截屏并分析XML布局文件的方式，为用户提供控件信息查看服务。<br>使用uiautomatorviewer，你可以检查一个应用的UI来查看应用的布局和组件以及相关的属性。该工具位于SDK目录下的tools\bin子目录下。</p><h5 id="启动UiUiautomatorViewer"><a href="#启动UiUiautomatorViewer" class="headerlink" title="启动UiUiautomatorViewer"></a>启动UiUiautomatorViewer</h5><p>​    方法一：直接进入进入SDK目录下的tools\bin目录下双击uiautomatorviewer.bat就可以启动。（旧版本的在SDK目录下的tools）</p><p>​    方法二：将环境变量配置到SDK目录下的tools\bin目录，在命令行工具执行：uiautomatorviewer</p><h4 id="核心定位元素"><a href="#核心定位元素" class="headerlink" title="核心定位元素"></a>核心定位元素</h4><table><thead><tr><th>属性</th><th>描述</th></tr></thead><tbody><tr><td>resource-id</td><td>资源ID，需要操作的组件基本都会有ID</td></tr><tr><td>text</td><td>文字属性，显示在组件上的文字</td></tr><tr><td>content-desc</td><td>描述，常用于提示操作</td></tr><tr><td>checken</td><td>选择属性，常见开关、单/复选和开关状态</td></tr><tr><td>focused</td><td>焦点属性，如输入框光标的闪动，说明焦点在输入框</td></tr></tbody></table><h4 id="搜索对象"><a href="#搜索对象" class="headerlink" title="搜索对象"></a>搜索对象</h4><table><thead><tr><th>属性</th><th>返回值</th><th>API By类</th></tr></thead><tbody><tr><td>resource-id</td><td>static BySelector</td><td>res(java.lang.String resourceName)</td></tr><tr><td>text</td><td>static BySelector</td><td>text(java.lang.String text)</td></tr><tr><td>content-desc</td><td>static BySelector</td><td>decs(java.lang.String contentDescription)</td></tr><tr><td>checken</td><td>static BySelector</td><td>checked(boolean isChecked)</td></tr><tr><td>focused</td><td>static BySelector</td><td>focused(boolean isFocused)</td></tr></tbody></table><h4 id="常见组件操作"><a href="#常见组件操作" class="headerlink" title="常见组件操作"></a>常见组件操作</h4><table><thead><tr><th>常见组件操作</th><th>类（UiObject2）</th></tr></thead><tbody><tr><td>点击</td><td>public boolean click()</td></tr><tr><td>长按</td><td>public boolean longclick()</td></tr><tr><td>拖动</td><td>public void drag(Point dest)</td></tr><tr><td>输入</td><td>public boolean setText(String text)</td></tr></tbody></table><h4 id="常见设备操作"><a href="#常见设备操作" class="headerlink" title="常见设备操作"></a>常见设备操作</h4><table><thead><tr><th>常见设备操作</th><th>类（UiDevice）</th></tr></thead><tbody><tr><td>点击</td><td>click(int x, int y)</td></tr><tr><td>按键</td><td>pressKeyCode(int KeyCode)</td></tr><tr><td>滑动</td><td>swipe(int startX, int StartY, int endX, int endY, int steps)</td></tr></tbody></table><p>1个steps等于5ms。</p><h4 id="用例注释生命周期"><a href="#用例注释生命周期" class="headerlink" title="用例注释生命周期"></a>用例注释生命周期</h4><p>@Before  每次用例开始前都执行</p><p>@Test 测试用例 </p><p>@After 每次用例结束后都执行</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://developer.android.com/training/testing/ui-automator.html&quot;&gt;UiAutomator&lt;/a&gt;是Google提供的用来做安卓自动化测试的一个Java库，基于Accessibility服务。功能很强，可以对第三方App进行测试，获取屏幕上任意一个APP的任意一个控件属性，并对其进行任意操作，但有两个缺点：1. 测试脚本只能使用Java语言 2. 测试脚本要打包成jar或者apk包上传到设备上才能运行。        &lt;/p&gt;</summary>
     
     
     
