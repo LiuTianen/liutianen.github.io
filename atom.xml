@@ -6,31 +6,10 @@
   <link href="https://www.lauyongyi.cn/atom.xml" rel="self"/>
   
   <link href="https://www.lauyongyi.cn/"/>
-  <updated>2021-09-05T14:15:00.000Z</updated>
+  <updated>2021-12-14T11:04:00.000Z</updated>
   <id>https://www.lauyongyi.cn/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>使用requests做简单的接口测试</title>
-    <link href="https://www.lauyongyi.cn/python+request2.html"/>
-    <id>https://www.lauyongyi.cn/python+request2.html</id>
-    <published>2021-09-05T11:14:00.000Z</published>
-    <updated>2021-09-05T14:15:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        <code>requests</code>除了用来做接口请求的发送，还可以用来做接口测试，使用方法跟最基础的发送请求一样，不同点就是多了一些处理方法和断言。<a id="more"></a></p><p>​        </p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;​        &lt;code&gt;requests&lt;/code&gt;除了用来做接口请求的发送，还可以用来做接口测试，使用方法跟最基础的发送请求一样，不同点就是多了一些处理方法和断言。</summary>
-    
-    
-    
-    <category term="python" scheme="https://www.lauyongyi.cn/categories/python/"/>
-    
-    
-    <category term="python" scheme="https://www.lauyongyi.cn/tags/python/"/>
-    
-  </entry>
   
   <entry>
     <title>Linux常用的几个命令</title>
@@ -154,9 +133,9 @@
     <category term="测试基础" scheme="https://www.lauyongyi.cn/categories/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/"/>
     
     
-    <category term="功能测试" scheme="https://www.lauyongyi.cn/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-    
     <category term="Http" scheme="https://www.lauyongyi.cn/tags/Http/"/>
+    
+    <category term="功能测试" scheme="https://www.lauyongyi.cn/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -432,6 +411,27 @@
     
     
     <category term="Android开发" scheme="https://www.lauyongyi.cn/tags/Android%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安卓shell脚本</title>
+    <link href="https://www.lauyongyi.cn/%E5%AE%89%E5%8D%93Shell%E8%84%9A%E6%9C%AC.html"/>
+    <id>https://www.lauyongyi.cn/%E5%AE%89%E5%8D%93Shell%E8%84%9A%E6%9C%AC.html</id>
+    <published>2021-02-15T09:30:00.000Z</published>
+    <updated>2021-02-16T06:39:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        在做测试Android应用时，经常需要执行某些重复的操作，如果设备支持adb调试，可以使用python、java等编写自动化脚本，以实现自动执行重复操作，解放人力。但如果遇到不支持ADB调试的设备时，只能使用串口工具，此时python、java就显得些乏力，这时候，就可以使用shell脚本。<a id="more"></a></p><p>1、脚本编写</p><p>​        安卓的shell脚本编写和Linux系统一样。但因为机制原因，要执行shell脚本，需要到/data目录下才可以。</p><p>​        使用串口工具链接设备和电脑。</p><p>​        选择端口</p><p>​        进入到设备</p><p>​        su获取权限</p><p>​        cd /data 进入到data目录</p><p>​        vi shellscript.sh</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">示例脚本。模拟打开一个应用，然后发送指定键值进行操作</span></span><br><span class="line"><span class="meta">#</span><span class="bash">!/system/bin/sh</span></span><br><span class="line">while true</span><br><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">am start PackageName</span><br><span class="line">input keyevent KeyCode</span><br><span class="line">input keyevent KeyCode</span><br><span class="line">input keyevent KeyCode</span><br><span class="line">sleep 3</span><br><span class="line">am force-stop PackageName</span><br><span class="line">&#125;</span><br><span class="line">done</span><br></pre></td></tr></table></figure><p>​        按 Esc  #进入vi命令模式</p><p>​        输入 :wq  #写入并退出</p><p>​        chmod 777 shellscript.sh   #赋予权限</p><p>​        ./shellscript.sh  #执行脚本</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​        在做测试Android应用时，经常需要执行某些重复的操作，如果设备支持adb调试，可以使用python、java等编写自动化脚本，以实现自动执行重复操作，解放人力。但如果遇到不支持ADB调试的设备时，只能使用串口工具，此时python、java就显得些乏力，这时候，就可以使用shell脚本。</summary>
+    
+    
+    
+    <category term="Android" scheme="https://www.lauyongyi.cn/categories/Android/"/>
+    
+    
+    <category term="adb命令" scheme="https://www.lauyongyi.cn/tags/adb%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
