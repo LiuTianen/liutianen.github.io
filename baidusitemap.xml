@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.lauyongyi.cn/adb%E5%91%BD%E4%BB%A4--dumpsys.html</loc>
+    <lastmod>2022-06-07</lastmod>
+  </url>
+  <url>
     <loc>https://www.lauyongyi.cn/%E5%AE%89%E5%8D%93%E7%95%8C%E9%9D%A2%E6%B8%B2%E6%9F%93%E6%A3%80%E6%9F%A5.html</loc>
     <lastmod>2022-06-07</lastmod>
   </url>
@@ -19,10 +23,6 @@
   <url>
     <loc>https://www.lauyongyi.cn/postman%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B.html</loc>
     <lastmod>2021-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.lauyongyi.cn/adb%E5%91%BD%E4%BB%A4--dumpsys.html</loc>
-    <lastmod>2021-08-28</lastmod>
   </url>
   <url>
     <loc>https://www.lauyongyi.cn/adb%E5%91%BD%E4%BB%A4--pm%20.html</loc>
@@ -93,11 +93,11 @@
     <lastmod>2021-05-10</lastmod>
   </url>
   <url>
-    <loc>https://www.lauyongyi.cn/%E6%9C%AC%E7%AB%99%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B.html</loc>
+    <loc>https://www.lauyongyi.cn/%E6%9C%8D%E5%8A%A1%E5%99%A8+%E5%9F%9F%E5%90%8D%E9%83%A8%E7%BD%B2Hexo.html</loc>
     <lastmod>2021-04-24</lastmod>
   </url>
   <url>
-    <loc>https://www.lauyongyi.cn/%E6%9C%8D%E5%8A%A1%E5%99%A8+%E5%9F%9F%E5%90%8D%E9%83%A8%E7%BD%B2Hexo.html</loc>
+    <loc>https://www.lauyongyi.cn/%E6%9C%AC%E7%AB%99%E5%BB%BA%E7%AB%99%E6%95%99%E7%A8%8B.html</loc>
     <lastmod>2021-04-24</lastmod>
   </url>
   <url>
@@ -313,11 +313,11 @@
     <lastmod>2020-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.lauyongyi.cn/Docker%E5%8C%96%E5%AE%89%E8%A3%85STF.html</loc>
+    <loc>https://www.lauyongyi.cn/Centos%E5%AE%89%E8%A3%85docker.html</loc>
     <lastmod>2020-06-11</lastmod>
   </url>
   <url>
-    <loc>https://www.lauyongyi.cn/Centos%E5%AE%89%E8%A3%85docker.html</loc>
+    <loc>https://www.lauyongyi.cn/Docker%E5%8C%96%E5%AE%89%E8%A3%85STF.html</loc>
     <lastmod>2020-06-11</lastmod>
   </url>
   <url>
