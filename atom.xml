@@ -6,10 +6,31 @@
   <link href="https://www.lauyongyi.cn/atom.xml" rel="self"/>
   
   <link href="https://www.lauyongyi.cn/"/>
-  <updated>2021-12-14T11:04:00.000Z</updated>
+  <updated>2022-07-24T09:52:00.000Z</updated>
   <id>https://www.lauyongyi.cn/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>adb bugreport的用法</title>
+    <link href="https://www.lauyongyi.cn/adb%20bugreport%E7%9A%84%E7%94%A8%E6%B3%95.html"/>
+    <id>https://www.lauyongyi.cn/adb%20bugreport%E7%9A%84%E7%94%A8%E6%B3%95.html</id>
+    <published>2022-07-24T08:25:00.000Z</published>
+    <updated>2022-07-24T09:52:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p> <code>bugreport</code>命令会把包含设备日志、堆栈轨迹和其他诊断信息打包成一个zip包，有助于查找和修复应用中的 bug。常用的命令格式是<code>adb bugreport</code>，该命令仅支持安卓7.0及以上系统，低于7.0会有找不到命令的报错信息。<a id="more"></a></p><h4 id="获取错误报告的方法"><a href="#获取错误报告的方法" class="headerlink" title="获取错误报告的方法"></a>获取错误报告的方法</h4><h5 id="从设备上获取错误报告"><a href="#从设备上获取错误报告" class="headerlink" title="从设备上获取错误报告"></a>从设备上获取错误报告</h5><p>如需直接从您的设备获取 bug 报告，请执行以下操作：</p><ol><li><p>确保您已启用开发者选项。</p></li><li><p>在<strong>开发者选项</strong>中，点击<strong>生成错误报告（Bug report）</strong>(图一)。</p><p><img src="/images/2022/07/bugreport/01.png"></p></li><li><p>选择所需的错误报告类型，然后点按报告。(图二)</p><p><img src="/images/2022/07/bugreport/02.png"></p><p>稍后，您便会收到错误报告已准备就绪的通知（图 三）。</p><p><img src="/images/2022/07/bugreport/03.png"></p></li><li><p>如需分享错误报告，请点按该通知。</p><p>(国内部分手机厂商会屏蔽该功能，大部分时间只能在原生设置看到这个功能按钮)</p></li></ol><h5 id="使用-adb-获取错误报告"><a href="#使用-adb-获取错误报告" class="headerlink" title="使用 adb 获取错误报告"></a>使用 adb 获取错误报告</h5><p>如果您只连接了一台设备，则可以通过 adb命令的方式 获取错误报告，如下所示：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb bugreport E:\Reports\MyBugReports</span><br></pre></td></tr></table></figure><p>如果没有指定错误报告的路径，系统会将其保存到本地目录。</p><p>（默认在当前用户的文件里，如windows C:\user\admin，Mac  /user/XXXX）</p><p>如果连接了多台设备，则必须使用 <code>-s</code> 选项指定设备。运行以下 <code>adb</code> 命令可获取设备序列号并生成 bug 报告。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ adb devices</span><br><span class="line">List of devices attached</span><br><span class="line">emulator-5554      device</span><br><span class="line">123456 device</span><br><span class="line"></span><br><span class="line">$ adb -s 123456 bugreport</span><br></pre></td></tr></table></figure><h5 id="获取旧版-bug-报告"><a href="#获取旧版-bug-报告" class="headerlink" title="获取旧版 bug 报告"></a>获取旧版 bug 报告</h5><p>默认情况下，bug 报告保存在 <code>/bugreports</code> 中，并可使用如下方式查看：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell ls &#x2F;bugreports&#x2F;</span><br><span class="line">bugreport-foo-bar.xxx.YYYY-MM-DD-HH-MM-SS-dumpstate_log-yyy.txt</span><br><span class="line">bugreport-foo-bar.xxx.YYYY-MM-DD-HH-MM-SS.zip</span><br><span class="line">dumpstate-stats.txt</span><br></pre></td></tr></table></figure><p>然后，您可以通过 <code>adb pull</code> 提取 ZIP 文件，如下所示：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb pull &#x2F;bugreports&#x2F;bugreport-foo-bar.xxx.YYYY-MM-DD-HH-MM-SS.zip</span><br></pre></td></tr></table></figure><h4 id="检查-bug-报告-ZIP-文件"><a href="#检查-bug-报告-ZIP-文件" class="headerlink" title="检查 bug 报告 ZIP 文件"></a>检查 bug 报告 ZIP 文件</h4><p>默认情况下，ZIP 文件称为 <code>bugreport-BUILD_ID-DATE.zip</code>，它可能会包含多个文件，但最重要的文件是 <code>bugreport-BUILD_ID-DATE.txt</code>。此文件就是错误报告，它包含系统服务 (<code>dumpsys</code>)、错误日志 (<code>dumpstate</code>) 和系统消息日志 (<code>logcat</code>) 的诊断输出。系统消息包括设备抛出错误时的堆栈轨迹，以及从所有应用中使用 <code>Log</code>类写入的消息。</p><p>ZIP 文件中有一个 <code>version.txt</code> 元数据文件，其中包含 Android 版本号，而且启用 systrace 后，ZIP 文件中还会包含 <code>systrace.txt</code> 文件。<strong>Systrace</strong> 工具可以获取并显示应用进程和其他 Android 系统进程的执行时间，从而帮助分析应用的性能。</p><p><code>dumpstate</code> 工具会将文件从设备的文件系统复制到 ZIP 文件的 <code>FS</code> 文件夹下，以便您引用它们。例如，设备中的 <code>/dirA/dirB/fileC</code> 文件会在 ZIP 文件中生成 <code>FS/dirA/dirB/fileC</code> 条目。</p><p><img src="/images/2022/07/bugreport/04.png"></p><h4 id="使用ChkBugReport查看错误信息"><a href="#使用ChkBugReport查看错误信息" class="headerlink" title="使用ChkBugReport查看错误信息"></a>使用ChkBugReport查看错误信息</h4><p>ChkBugReport 是一款开发者工具，用于处理 Android 手机上生成的 bugreport 文件，并尽可能多地提取有用数据。</p><p>项目地址：<a href="https://github.com/sonyxperiadev/ChkBugReport">https://github.com/sonyxperiadev/ChkBugReport</a></p><p>下载好release版本后，执行<code>/Users/tinenlau/Downloads/ChkBugReport-0.5.0/core/createjar.sh</code>，可以生成<strong>ChkBugReport</strong>的jar包，以供使用（如果是较低版本（1.6以前的）的jdk可能会报错，所以尽可能是用较新版本的如1.8）</p><p>执行<code>java -jar chkbugreport.jar /path/bugreport-XX-xx-XX.txt</code>就会自动构建，把现有信息构建成一个完整的html页面，如下图：</p><p><img src="/images/2022/07/bugreport/05.png"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt; &lt;code&gt;bugreport&lt;/code&gt;命令会把包含设备日志、堆栈轨迹和其他诊断信息打包成一个zip包，有助于查找和修复应用中的 bug。常用的命令格式是&lt;code&gt;adb bugreport&lt;/code&gt;，该命令仅支持安卓7.0及以上系统，低于7.0会有找不到命令的报错信息。</summary>
+    
+    
+    
+    <category term="Android" scheme="https://www.lauyongyi.cn/categories/Android/"/>
+    
+    
+    <category term="adb命令" scheme="https://www.lauyongyi.cn/tags/adb%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux常用的几个命令</title>
@@ -411,27 +432,6 @@
     
     
     <category term="Android开发" scheme="https://www.lauyongyi.cn/tags/Android%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安卓shell脚本</title>
-    <link href="https://www.lauyongyi.cn/%E5%AE%89%E5%8D%93Shell%E8%84%9A%E6%9C%AC.html"/>
-    <id>https://www.lauyongyi.cn/%E5%AE%89%E5%8D%93Shell%E8%84%9A%E6%9C%AC.html</id>
-    <published>2021-02-15T09:30:00.000Z</published>
-    <updated>2021-02-16T06:39:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        在做测试Android应用时，经常需要执行某些重复的操作，如果设备支持adb调试，可以使用python、java等编写自动化脚本，以实现自动执行重复操作，解放人力。但如果遇到不支持ADB调试的设备时，只能使用串口工具，此时python、java就显得些乏力，这时候，就可以使用shell脚本。<a id="more"></a></p><p>1、脚本编写</p><p>​        安卓的shell脚本编写和Linux系统一样。但因为机制原因，要执行shell脚本，需要到/data目录下才可以。</p><p>​        使用串口工具链接设备和电脑。</p><p>​        选择端口</p><p>​        进入到设备</p><p>​        su获取权限</p><p>​        cd /data 进入到data目录</p><p>​        vi shellscript.sh</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">示例脚本。模拟打开一个应用，然后发送指定键值进行操作</span></span><br><span class="line"><span class="meta">#</span><span class="bash">!/system/bin/sh</span></span><br><span class="line">while true</span><br><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">am start PackageName</span><br><span class="line">input keyevent KeyCode</span><br><span class="line">input keyevent KeyCode</span><br><span class="line">input keyevent KeyCode</span><br><span class="line">sleep 3</span><br><span class="line">am force-stop PackageName</span><br><span class="line">&#125;</span><br><span class="line">done</span><br></pre></td></tr></table></figure><p>​        按 Esc  #进入vi命令模式</p><p>​        输入 :wq  #写入并退出</p><p>​        chmod 777 shellscript.sh   #赋予权限</p><p>​        ./shellscript.sh  #执行脚本</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;​        在做测试Android应用时，经常需要执行某些重复的操作，如果设备支持adb调试，可以使用python、java等编写自动化脚本，以实现自动执行重复操作，解放人力。但如果遇到不支持ADB调试的设备时，只能使用串口工具，此时python、java就显得些乏力，这时候，就可以使用shell脚本。</summary>
-    
-    
-    
-    <category term="Android" scheme="https://www.lauyongyi.cn/categories/Android/"/>
-    
-    
-    <category term="adb命令" scheme="https://www.lauyongyi.cn/tags/adb%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
